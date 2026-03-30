@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Behjat Riyaz ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&family=Fraunces:ital,opsz,wght@1,9..144,100;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#09090c;--card:#121215;--card2:#18181d;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --text:#f0eeff;--muted:#5a5870;--muted2:#9290a8;
+  --pink:#ff3d7f;--pink2:#ff85b3;--pink3:rgba(255,61,127,0.1);
+  --green:#00e5a0;--blue:#5b8dee;--amber:#f5c842;--purple:#a78bfa;--red:#ff5566;
+  --sans:'Inter',sans-serif;--display:'Syne',sans-serif;--serif:'Fraunces',serif;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--sans);}
+
+/* ══ SCREENS ══ */
+.screen{position:fixed;inset:0;z-index:10;transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+.screen.gone{opacity:0!important;pointer-events:none!important;visibility:hidden;transform:scale(1.02);}
+
+/* ════════════════════════════════════════
+   MAP SCREEN
+════════════════════════════════════════ */
+#s-map{background:radial-gradient(ellipse 130% 100% at 50% 60%,#0c0b1c,#04040a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;}
+.map-t1{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted2);animation:fu 0.8s 0.2s both;}
+.map-t2{font-family:var(--display);font-size:clamp(28px,5vw,54px);font-weight:800;letter-spacing:-0.025em;text-align:center;animation:fu 0.8s 0.4s both;}
+.map-t2 em{font-family:var(--serif);font-style:italic;font-weight:100;color:var(--pink2);}
+.map-wrap{width:min(780px,94vw);animation:fu 0.8s 0.6s both;}
+.map-wrap svg{width:100%;height:auto;}
+.map-h{font-size:11px;color:var(--muted);letter-spacing:0.1em;animation:fu 0.8s 0.8s both,throb 2s 1.6s ease-in-out infinite;}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes throb{0%,100%{opacity:0.5}50%{opacity:1}}
+.pr{animation:pring 2s ease-out infinite;}
+.pr2{animation:pring 2s ease-out 0.7s infinite;}
+@keyframes pring{0%{r:10;opacity:0.8;stroke-width:2}100%{r:36;opacity:0;stroke-width:0.5}}
+.apin{cursor:pointer;transition:filter 0.2s;}
+.apin:hover{filter:drop-shadow(0 0 16px rgba(255,61,127,0.9));}
+
+/* ════════════════════════════════════════
+   HERO SCREEN
+════════════════════════════════════════ */
+#s-hero{background:var(--bg);overflow:hidden;}
+.hero-nav{position:absolute;top:0;left:0;right:0;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(9,9,12,0.98),transparent);z-index:30;}
+.hero-logo{font-family:var(--display);font-size:20px;font-weight:800;color:var(--pink);}
+.nav-links{display:flex;gap:4px;}
+.nl{padding:7px 14px;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted2);cursor:pointer;transition:all 0.18s;border:1px solid transparent;}
+.nl:hover{color:var(--text);background:var(--card2);border-color:var(--border2);}
+
+.hero-wrap{position:absolute;inset:0;display:flex;align-items:center;padding:80px 48px 40px;gap:40px;}
+.hero-left{flex:1;max-width:560px;}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:20px;background:var(--pink3);border:1px solid rgba(255,61,127,0.25);font-size:11px;font-weight:500;color:var(--pink2);letter-spacing:0.05em;margin-bottom:22px;opacity:0;animation:fu 0.6s 0.1s both;}
+.bdot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 7px var(--green);}
+.hero-name{font-family:var(--display);font-size:clamp(52px,8vw,100px);font-weight:800;line-height:0.88;letter-spacing:-0.035em;margin-bottom:18px;}
+.hero-name .n1{display:block;overflow:hidden;}
+.hero-name .n1 span{display:inline-block;opacity:0;transform:translateY(100%);animation:slideUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards;}
+.hero-name .n2{display:block;font-family:var(--serif);font-style:italic;font-weight:100;color:var(--muted);overflow:hidden;}
+.hero-name .n2 span{display:inline-block;opacity:0;transform:translateY(100%);animation:slideUp 0.7s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;}
+@keyframes slideUp{to{opacity:1;transform:translateY(0)}}
+.hero-sub{font-size:15px;line-height:1.75;color:var(--muted2);max-width:440px;margin-bottom:32px;opacity:0;animation:fu 0.7s 0.45s both;}
+.hero-sub strong{color:var(--text);font-weight:500;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fu 0.6s 0.6s both;}
+.btn-p{display:flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;background:var(--pink);color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;}
+.btn-p:hover{background:#ff1a66;transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,61,127,0.45);}
+.btn-s{display:flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;background:transparent;color:var(--text);font-size:14px;font-weight:500;border:1px solid var(--border2);cursor:pointer;transition:all 0.2s;}
+.btn-s:hover{background:var(--card2);transform:translateY(-2px);}
+.stats-row{display:flex;gap:24px;margin-top:30px;opacity:0;animation:fu 0.6s 0.75s both;}
+.st{}.stn{font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-0.02em;color:var(--text);}
+.stl{font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:1px;}
+
+.hero-right{flex-shrink:0;display:flex;align-items:flex-end;padding-bottom:20px;opacity:0;animation:fu 0.8s 0.3s both;}
+.mascot-wrap{width:clamp(180px,22vw,250px);cursor:pointer;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);animation:float 4s ease-in-out infinite;}
+.mascot-wrap:hover{transform:scale(1.06) translateY(-6px);}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.mascot-wrap:hover{animation:none;transform:scale(1.07) translateY(-8px);}
+.msp{position:absolute;top:-52px;left:50%;transform:translateX(-50%);background:#fff;border:2px solid var(--pink);border-radius:16px 16px 16px 4px;padding:7px 13px;font-size:12px;color:#1a0814;white-space:nowrap;opacity:0;transition:opacity 0.25s;pointer-events:none;font-weight:500;box-shadow:0 4px 20px rgba(255,61,127,0.2);}
+.msp.show{opacity:1;}
+.hero-glow{position:absolute;top:0;right:0;width:600px;height:600px;background:radial-gradient(ellipse,rgba(255,61,127,0.05),transparent 65%);pointer-events:none;}
+.hero-glow2{position:absolute;bottom:0;left:0;width:400px;height:400px;background:radial-gradient(ellipse,rgba(91,141,238,0.04),transparent 65%);pointer-events:none;}
+
+/* eye + arm animations */
+.eb{transform-origin:center;animation:eblink 5s ease-in-out infinite;}
+@keyframes eblink{0%,82%,100%{transform:scaleY(1)}85%,91%{transform:scaleY(0.06)}}
+.ct{transform-origin:128px 98px;animation:ctw 2.2s ease-in-out infinite;}
+@keyframes ctw{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+.aw{transform-origin:105px 74px;}
+.mascot-wrap.wave .aw{animation:awv 0.45s ease-in-out 4;}
+@keyframes awv{0%,100%{transform:rotate(0)}40%{transform:rotate(-38deg)}70%{transform:rotate(10deg)}}
+
+/* ════════════════════════════════════════
+   BROWSE SCREEN
+════════════════════════════════════════ */
+#s-browse{background:var(--bg);display:block!important;overflow-y:auto;scroll-behavior:smooth;}
+#s-browse::-webkit-scrollbar{width:3px;}
+#s-browse::-webkit-scrollbar-thumb{background:var(--card2);border-radius:2px;}
+
+.bnav{position:sticky;top:0;z-index:100;height:54px;padding:0 48px;display:flex;align-items:center;gap:6px;background:rgba(9,9,12,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.blogo{font-family:var(--display);font-size:16px;font-weight:800;color:var(--pink);cursor:pointer;margin-right:10px;}
+.bt{padding:6px 13px;border-radius:7px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.18s;border:1px solid transparent;}
+.bt:hover{color:var(--text);background:var(--card2);}
+.bt.on{color:var(--text);background:var(--card2);border-color:var(--border2);}
+.bnavr{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--green);}
+.gdot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);}
+
+.bcont{padding:56px 48px 100px;max-width:1100px;margin:0 auto;}
+
+/* section reveals */
+.bs{margin-bottom:80px;}
+.bs-inner{opacity:0;transform:translateY(36px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+.bs-inner.vis{opacity:1;transform:translateY(0);}
+.sl{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--pink);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.sl::before{content:'';width:18px;height:1px;background:var(--pink);}
+.sh{font-family:var(--display);font-size:clamp(30px,4.5vw,52px);font-weight:800;letter-spacing:-0.02em;line-height:0.92;margin-bottom:30px;}
+.sh em{font-family:var(--serif);font-style:italic;font-weight:100;color:var(--muted);}
+
+/* ── ABOUT ── */
+.about-g{display:grid;grid-template-columns:1.1fr 0.9fr;gap:20px;}
+.acard{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color 0.2s;}
+.acard:hover{border-color:var(--border2);}
+.acard p{font-size:14px;line-height:1.9;color:var(--muted2);margin-bottom:14px;}
+.acard p:last-child{margin-bottom:0;}
+.acard p strong{color:var(--text);font-weight:500;}
+.ipills{display:flex;flex-direction:column;gap:8px;}
+.ip{display:flex;justify-content:space-between;align-items:center;padding:11px 15px;background:var(--card2);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;}
+.ip:hover{border-color:var(--border2);transform:translateX(3px);}
+.ipk{font-size:10px;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase;}
+.ipv{font-size:12px;font-weight:500;color:var(--text);}
+.gc{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.2);border-radius:20px;color:var(--green);font-size:10px;font-weight:500;}
+
+/* ── PROJECTS — Netflix horizontal scroll ── */
+.proj-scroll-wrap{position:relative;overflow:visible;}
+.proj-scroll{display:flex;gap:16px;overflow-x:auto;overflow-y:visible;padding:4px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab;}
+.proj-scroll::-webkit-scrollbar{height:3px;}
+.proj-scroll::-webkit-scrollbar-track{background:transparent;}
+.proj-scroll::-webkit-scrollbar-thumb{background:var(--card2);border-radius:2px;}
+.pc{
+  flex-shrink:0;width:300px;scroll-snap-align:start;
+  background:var(--card);border:1px solid var(--border);border-radius:18px;
+  padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
+  position:relative;overflow:hidden;cursor:default;
+  will-change:transform;
+}
+.pc::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;background:radial-gradient(ellipse 80% 60% at 50% -10%,var(--pc-glow,rgba(255,61,127,0.08)),transparent);}
+.pc:hover{transform:translateY(-6px) scale(1.01);border-color:var(--border2);}
+.pc:hover::after{opacity:1;}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+.pc-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pc-n{font-size:9px;color:var(--muted);letter-spacing:0.1em;font-weight:500;}
+.pc-name{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px;}
+.pc-desc{font-size:12px;color:var(--muted2);line-height:1.7;margin-bottom:14px;}
+.pc-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.pt{font-size:9px;padding:3px 8px;border-radius:20px;font-weight:500;}
+
+
+/* ── EXPERIENCE ── */
+.etl{position:relative;padding-left:30px;}
+.etl::before{content:'';position:absolute;left:10px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--pink),rgba(255,61,127,0.1),transparent);}
+.ei{position:relative;margin-bottom:28px;opacity:0;transform:translateX(-16px);transition:opacity 0.5s,transform 0.5s;}
+.ei.vis{opacity:1;transform:translateX(0);}
+.ei::before{content:'';position:absolute;left:-26px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--card);border:2px solid var(--border2);transition:all 0.2s;}
+.ei:first-child::before{border-color:var(--pink);background:rgba(255,61,127,0.15);}
+.ei:hover::before{border-color:var(--pink);}
+.ec{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;transition:all 0.2s;}
+.ec:hover{border-color:var(--border2);transform:translateX(5px);}
+.er{font-size:15px;font-weight:600;color:var(--text);margin-bottom:3px;}
+.eco{font-size:11px;color:var(--pink2);font-weight:500;margin-bottom:3px;}
+.ed{font-size:10px;color:var(--muted);margin-bottom:12px;}
+.eu{list-style:none;}
+.eu li{font-size:12px;color:var(--muted2);line-height:1.75;padding-left:16px;position:relative;margin-bottom:4px;}
+.eu li::before{content:'→';position:absolute;left:0;color:var(--pink);font-size:10px;top:2px;}
+/* CURRENT PROJECTS */
+.current-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+.current-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  transition:all 0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.current-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at top right, rgba(255,61,127,0.12), transparent 60%);
+  opacity:0.2;
+  animation:glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+  0%,100%{opacity:0.15}
+  50%{opacity:0.35}
+}
+
+.current-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--border2);
+}
+
+.cc-tag{font-size:10px;letter-spacing:0.15em;color:var(--pink2);margin-bottom:10px;}
+.cc-title{font-family:var(--display);font-size:20px;font-weight:700;margin-bottom:10px;}
+.cc-desc{font-size:13px;color:var(--muted2);line-height:1.7;margin-bottom:14px;}
+.cc-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.cc-tags span{font-size:10px;padding:4px 10px;border-radius:20px;background:var(--card2);border:1px solid var(--border);}
+.cc-link{color:var(--pink);font-size:13px;font-weight:600;text-decoration:none;}
+/* ════════════════════════
+   SKILLS — CONSTELLATION
+════════════════════════ */
+.skills-wrap{position:relative;}
+.skills-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.scat-btn{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:500;color:var(--muted2);background:var(--card);border:1px solid var(--border);cursor:pointer;transition:all 0.2s;}
+.scat-btn:hover{border-color:var(--border2);color:var(--text);}
+.scat-btn.on{background:var(--pink3);border-color:rgba(255,61,127,0.3);color:var(--pink2);}
+#constellation{width:100%;height:360px;border-radius:20px;background:radial-gradient(ellipse 80% 80% at 50% 50%,#0e0b1a,#07070d);border:1px solid var(--border);position:relative;overflow:hidden;}
+#constellation canvas{position:absolute;inset:0;}
+.orb-tooltip{
+  position:absolute;pointer-events:none;
+  background:rgba(18,18,21,0.95);border:1px solid var(--border2);
+  border-radius:10px;padding:10px 14px;
+  font-size:12px;color:var(--text);white-space:nowrap;
+  opacity:0;transition:opacity 0.2s;z-index:10;
+  box-shadow:0 8px 24px rgba(0,0,0,0.5);
+}
+.orb-tooltip.show{opacity:1;}
+.ot-name{font-weight:600;margin-bottom:3px;}
+.ot-pct{font-size:11px;color:var(--muted2);}
+.skills-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:11px;color:var(--muted);}
+.sl-item{display:flex;align-items:center;gap:5px;}
+.sl-dot{width:8px;height:8px;border-radius:50%;}
+
+/* ── CONTACT ── */
+.contact-g{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.ctacrd{background:linear-gradient(135deg,rgba(255,61,127,0.1),rgba(91,141,238,0.06));border:1px solid rgba(255,61,127,0.18);border-radius:18px;padding:32px;}
+.ctat{font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px;}
+.ctas{font-size:14px;color:var(--muted2);line-height:1.75;margin-bottom:24px;}
+.cls{display:flex;flex-direction:column;gap:9px;}
+.cl{display:flex;align-items:center;gap:12px;padding:12px 15px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);font-size:13px;font-weight:500;transition:all 0.2s;}
+.cl:hover{border-color:var(--pink);background:var(--pink3);color:var(--pink);transform:translateX(4px);}
+.ci{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.cstatus{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;}
+.sti{display:flex;flex-direction:column;gap:3px;padding:12px 15px;background:var(--card2);border-radius:10px;border:1px solid var(--border);transition:all 0.2s;}
+.sti:hover{border-color:var(--border2);}
+.stik{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
+.stiv{font-size:13px;font-weight:500;color:var(--text);}
+
+/* PARTICLES */
+.pk{position:fixed;pointer-events:none;border-radius:50%;animation:pkfly linear infinite;}
+@keyframes pkfly{0%{transform:translateY(100vh) rotate(0);opacity:0}8%{opacity:0.7}92%{opacity:0.3}100%{transform:translateY(-80px) rotate(720deg);opacity:0}}
+
+@media(max-width:768px){
+  .about-g,.contact-g{grid-template-columns:1fr;}
+  .hero-wrap{flex-direction:column;padding:70px 24px 24px;gap:20px;}
+  .hero-right{display:none;}
+  .bcont{padding:40px 20px 80px;}
+  .bnav{padding:0 20px;}
+  .hero-nav{padding:14px 24px;}
+}
+
+/* ════════ BOOK STYLES ════════ */
+#book-wrap{perspective:1400px;width:100%;}
+.book-page{
+  display:none;
+  width:100%;background:var(--card);
+  border:1px solid var(--border2);border-radius:16px;
+  overflow:hidden;
+  grid-template-columns:1fr 1fr;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.book-page.active{display:grid;animation:pageIn 0.5s cubic-bezier(0.16,1,0.3,1) both;}
+.book-page.leaving{animation:pageOut 0.4s cubic-bezier(0.4,0,1,1) forwards;}
+@keyframes pageIn{from{opacity:0;transform:rotateY(-8deg) scale(0.97) translateX(20px)}to{opacity:1;transform:rotateY(0) scale(1) translateX(0)}}
+@keyframes pageOut{from{opacity:1;transform:rotateY(0) scale(1)}to{opacity:0;transform:rotateY(8deg) scale(0.97) translateX(-20px)}}
+.page-left{
+  padding:28px 24px 24px;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;gap:12px;
+  background:rgba(255,255,255,0.015);
+  min-height:300px;
+}
+.page-right{
+  padding:28px 28px 24px;
+  display:flex;flex-direction:column;
+  min-height:300px;
+}
+.page-chapter{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.page-mascot{flex:1;display:flex;align-items:center;justify-content:center;min-height:160px;}
+.page-num{font-size:10px;color:var(--muted);letter-spacing:0.1em;margin-bottom:10px;font-weight:500;}
+.page-tag{display:inline-flex;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;border:1px solid;letter-spacing:0.05em;margin-bottom:10px;width:fit-content;}
+.page-title{font-family:var(--display);font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.05;margin-bottom:14px;}
+.page-desc{font-size:13px;color:var(--muted2);line-height:1.8;flex:1;margin-bottom:16px;}
+.page-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;}
+.proj-dot{width:8px;height:8px;border-radius:50%;background:var(--card2);border:1px solid var(--border2);cursor:pointer;transition:all 0.2s;}
+.proj-dot.on{background:var(--pink);border-color:var(--pink);transform:scale(1.3);}
+@media(max-width:640px){
+  .book-page{grid-template-columns:1fr;}
+  .page-left{border-right:none;border-bottom:1px solid var(--border);min-height:180px;}
+  .page-mascot{min-height:120px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ MAP ════════ -->
+<div class="screen" id="s-map">
+  <div class="map-t1">A journey across three countries</div>
+  <div class="map-t2">Where is <em>Behjat?</em></div>
+  <div class="map-wrap">
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="mapbg" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#0e0c20"/><stop offset="100%" stop-color="#04040c"/></radialGradient>
+  <filter id="gf"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="460" fill="url(#mapbg)"/>
+<line x1="0" y1="230" x2="900" y2="230" stroke="#fff" stroke-width="0.2" opacity="0.06"/>
+<line x1="450" y1="0" x2="450" y2="460" stroke="#fff" stroke-width="0.2" opacity="0.06"/>
+<path d="M70 112 Q84 68 124 65 Q172 60 210 78 Q252 94 268 114 Q282 132 272 156 Q260 180 238 190 Q215 198 198 212 Q183 228 176 248 Q168 268 157 280 Q145 290 130 284 Q114 272 108 253 Q100 230 104 204 Q108 180 93 160 Q80 140 70 112Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M218 46 Q256 36 274 52 Q286 66 266 76 Q247 82 230 72 Q216 62 218 46Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M152 285 Q158 306 163 320 Q168 332 163 337 Q155 328 149 308Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M172 340 Q200 328 232 334 Q264 340 278 362 Q288 384 282 412 Q275 440 257 452 Q239 460 221 454 Q200 446 186 428 Q172 407 168 383 Q163 358 172 340Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M405 72 Q436 60 466 66 Q487 74 490 90 Q492 106 477 116 Q460 124 444 121 Q428 118 418 104 Q406 88 405 72Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M440 120 Q460 126 476 138 Q488 150 482 167 Q474 178 458 174 Q442 169 434 154 Q426 137 440 120Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M424 170 Q456 158 486 164 Q514 172 528 196 Q540 220 537 256 Q534 290 520 320 Q505 350 483 364 Q458 374 437 365 Q413 354 401 330 Q388 304 387 272 Q386 238 394 208 Q402 182 424 170Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M494 50 Q556 34 628 40 Q698 46 746 62 Q784 78 792 100 Q798 120 777 130 Q750 140 716 134 Q682 128 650 122 Q619 118 588 122 Q558 128 536 136 Q514 142 498 132 Q482 120 494 50Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M514 140 Q548 132 575 144 Q596 156 598 178 Q600 198 582 208 Q562 216 542 208 Q522 199 514 180 Q505 158 514 140Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M615 140 Q660 133 698 148 Q728 162 738 190 Q744 214 728 230 Q710 244 684 238 Q656 230 638 210 Q618 188 615 165Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M598 226 Q621 218 640 232 Q655 246 652 270 Q646 290 628 298 Q609 304 596 290 Q582 274 585 250Z" fill="#18203a" stroke="#3a5a8a" stroke-width="0.8"/>
+<path d="M698 236 Q728 228 754 238 Q768 251 762 266 Q752 276 730 272 Q708 264 699 248Z" fill="#18302a" stroke="#3a6a5a" stroke-width="0.8"/>
+<path d="M680 134 Q732 126 771 140 Q800 154 808 178 Q812 198 794 212 Q773 224 743 218 Q713 210 693 192 Q672 174 680 152Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M796 148 Q813 140 824 150 Q830 162 818 170 Q804 175 796 163Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<path d="M706 312 Q756 298 798 308 Q830 320 836 348 Q840 375 822 394 Q802 410 771 408 Q739 405 719 387 Q699 366 697 340 Q696 320 706 312Z" fill="#141426" stroke="#1e1e36" stroke-width="0.5"/>
+<!-- pins -->
+<g><circle cx="614" cy="162" r="18" fill="rgba(255,133,179,0.06)"/><circle cx="614" cy="162" r="8" fill="rgba(255,133,179,0.12)" stroke="#ff85b3" stroke-width="0.8"/><circle cx="614" cy="162" r="4" fill="#ff85b3" opacity="0.8"/><text x="614" y="147" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#ff85b3" font-weight="500">Kashmir 🏡</text></g>
+<g><circle cx="730" cy="255" r="18" fill="rgba(0,229,160,0.05)"/><circle cx="730" cy="255" r="8" fill="rgba(0,229,160,0.1)" stroke="#00e5a0" stroke-width="0.8"/><circle cx="730" cy="255" r="4" fill="#00e5a0" opacity="0.7"/><text x="730" y="240" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#00e5a0" font-weight="500">USM 🎓</text></g>
+<g class="apin" onclick="goHero()">
+  <circle class="pr" cx="180" cy="192" r="10" fill="none" stroke="#ff3d7f" stroke-width="2"/>
+  <circle class="pr2" cx="180" cy="192" r="10" fill="none" stroke="#ff3d7f" stroke-width="1.5"/>
+  <circle cx="180" cy="192" r="14" fill="rgba(255,61,127,0.12)" stroke="#ff3d7f" stroke-width="1.5"/>
+  <circle cx="180" cy="192" r="6" fill="#ff3d7f" filter="url(#gf)"/>
+  <line x1="180" y1="198" x2="180" y2="210" stroke="#ff3d7f" stroke-width="1.5" stroke-linecap="round"/>
+  <rect x="140" y="214" width="80" height="21" rx="6" fill="rgba(255,61,127,0.1)" stroke="#ff3d7f" stroke-width="1"/>
+  <text x="180" y="229" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#ff3d7f" font-weight="600">📍 Atlanta — enter</text>
+</g>
+<path d="M614 162 Q640 100 730 255" fill="none" stroke="#ff85b3" stroke-width="1" stroke-dasharray="6 8" opacity="0.28"/>
+<path d="M730 255 Q400 172 180 192" fill="none" stroke="#00e5a0" stroke-width="1" stroke-dasharray="6 8" opacity="0.28"/>
+</svg>
+  </div>
+  <div class="map-h">click the glowing atlanta pin to enter ✦</div>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<div class="screen gone" id="s-hero">
+  <div class="hero-glow"></div><div class="hero-glow2"></div>
+  <div class="hero-nav">
+    <div class="hero-logo">BR.</div>
+    <div class="nav-links">
+      <div class="nl" onclick="goBrowse('about')">About</div>
+      <div class="nl" onclick="goBrowse('projects')">Projects</div>
+      <div class="nl" onclick="goBrowse('experience')">Experience</div>
+      <div class="nl" onclick="goBrowse('skills')">Skills</div>
+      <div class="nl" onclick="goBrowse('contact')">Contact</div>
+    </div>
+  </div>
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <div class="badge"><span class="bdot"></span>Open to ML / SWE / Research roles · Dec 2026</div>
+      <div class="hero-name">
+        <div class="n1"><span>Behjat</span></div>
+        <div class="n2"><span>Riyaz.</span></div>
+      </div>
+      <div class="hero-sub">ML Engineer &amp; Software Engineer building <strong>autonomous agents</strong>, <strong>NLP tools</strong>, and <strong>full-stack systems</strong>. MS CS at Emory University, Atlanta.</div>
+      <div class="hero-btns">
+        <button class="btn-p" onclick="goBrowse('about')">▶ &nbsp;Explore my work</button>
+        <button class="btn-s" onclick="goBrowse('contact')">Get in touch</button>
+      </div>
+      <div class="stats-row">
+        <div class="st"><div class="stn">3.9</div><div class="stl">GPA</div></div>
+        <div class="st"><div class="stn">6+</div><div class="stl">Projects</div></div>
+        <div class="st"><div class="stn">3</div><div class="stl">Roles</div></div>
+        <div class="st"><div class="stn">3yr</div><div class="stl">OPT</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div style="position:relative">
+        <div id="msp" class="msp"></div>
+        <div id="mascot-main" class="mascot-wrap" onclick="mascotClick()">
+<svg viewBox="0 0 160 175" xmlns="http://www.w3.org/2000/svg" overflow="visible" style="width:100%;display:block;">
+  <ellipse cx="80" cy="172" rx="50" ry="7" fill="rgba(255,61,127,0.08)"/>
+  <rect x="40" y="106" width="80" height="10" rx="5" fill="#ff9ec4"/>
+  <rect x="44" y="116" width="72" height="54" rx="10" fill="#ff85b3"/>
+  <line x1="50" y1="170" x2="44" y2="183" stroke="#e07090" stroke-width="5" stroke-linecap="round"/>
+  <line x1="110" y1="170" x2="116" y2="183" stroke="#e07090" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="44" cy="185" r="6" fill="#e07090"/>
+  <circle cx="116" cy="185" r="6" fill="#e07090"/>
+  <circle cx="80" cy="186" r="6" fill="#e07090"/>
+  <ellipse cx="80" cy="92" rx="28" ry="23" fill="#c8deff"/>
+  <rect x="65" y="83" width="30" height="19" rx="6" fill="#b0ccf8"/>
+  <text x="80" y="96" text-anchor="middle" font-size="11" fill="#ff85b3">♡</text>
+  <path class="aw" d="M52 86 Q34 77 28 64 Q24 55 31 51" fill="none" stroke="#c8deff" stroke-width="14" stroke-linecap="round"/>
+  <ellipse cx="30" cy="49" rx="10" ry="8" fill="#f0c8a0"/>
+  <path d="M108 86 Q125 81 129 95" fill="none" stroke="#c8deff" stroke-width="14" stroke-linecap="round"/>
+  <ellipse cx="130" cy="97" rx="10" ry="8" fill="#f0c8a0"/>
+  <rect x="72" y="70" width="16" height="15" rx="6" fill="#f0c8a0"/>
+  <ellipse cx="80" cy="50" rx="30" ry="30" fill="#180c04"/>
+  <path d="M50 46 Q40 74 44 104 Q47 116 54 112 Q51 84 54 60Z" fill="#180c04"/>
+  <path d="M110 46 Q120 74 116 104 Q113 116 106 112 Q109 84 106 60Z" fill="#180c04"/>
+  <path d="M50 46 Q42 72 45 100" fill="none" stroke="#cc1133" stroke-width="2.5" opacity="0.75" stroke-linecap="round"/>
+  <path d="M53 44 Q46 68 49 97" fill="none" stroke="#ee3344" stroke-width="1.8" opacity="0.5" stroke-linecap="round"/>
+  <path d="M110 46 Q118 72 115 100" fill="none" stroke="#cc1133" stroke-width="2.5" opacity="0.75" stroke-linecap="round"/>
+  <path d="M107 44 Q115 66 112 95" fill="none" stroke="#ee3344" stroke-width="1.8" opacity="0.5" stroke-linecap="round"/>
+  <ellipse cx="80" cy="52" rx="25" ry="26" fill="#f2c8a0"/>
+  <ellipse cx="63" cy="61" rx="9" ry="6" fill="#ffb0c8" opacity="0.4"/>
+  <ellipse cx="97" cy="61" rx="9" ry="6" fill="#ffb0c8" opacity="0.4"/>
+  <path d="M55 44 Q58 20 80 18 Q102 20 105 44 Q97 32 80 31 Q63 32 55 44Z" fill="#180c04"/>
+  <path d="M59 42 Q63 22 74 19" fill="none" stroke="#dd2233" stroke-width="2.8" opacity="0.65" stroke-linecap="round"/>
+  <path d="M101 42 Q97 22 86 19" fill="none" stroke="#dd2233" stroke-width="2.2" opacity="0.55" stroke-linecap="round"/>
+  <rect x="62" y="21" width="16" height="8" rx="4" fill="#ff4d8d"/>
+  <text x="70" y="28" text-anchor="middle" font-size="6" fill="#fff">✦</text>
+  <path d="M65 40 Q71 36 77 38" fill="none" stroke="#2a1008" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M83 38 Q89 36 95 40" fill="none" stroke="#2a1008" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse class="eb" cx="70" cy="49" rx="6.5" ry="7" fill="#fff" style="transform-origin:70px 49px"/>
+  <ellipse cx="70" cy="50" rx="5" ry="5.5" fill="#2a1008"/>
+  <ellipse cx="70" cy="50" rx="2.8" ry="3.2" fill="#0a0404"/>
+  <ellipse cx="71.8" cy="48.2" rx="1.4" ry="1.4" fill="#fff" opacity="0.9"/>
+  <line x1="64" y1="43" x2="62" y2="40" stroke="#1a0808" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="70" y1="42" x2="70" y2="39" stroke="#1a0808" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="76" y1="43" x2="78" y2="40" stroke="#1a0808" stroke-width="1.4" stroke-linecap="round"/>
+  <ellipse class="eb" cx="90" cy="49" rx="6.5" ry="7" fill="#fff" style="transform-origin:90px 49px"/>
+  <ellipse cx="90" cy="50" rx="5" ry="5.5" fill="#2a1008"/>
+  <ellipse cx="90" cy="50" rx="2.8" ry="3.2" fill="#0a0404"/>
+  <ellipse cx="91.8" cy="48.2" rx="1.4" ry="1.4" fill="#fff" opacity="0.9"/>
+  <line x1="84" y1="43" x2="82" y2="40" stroke="#1a0808" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="90" y1="42" x2="90" y2="39" stroke="#1a0808" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="96" y1="43" x2="98" y2="40" stroke="#1a0808" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M78 56 Q77 61 76 64 Q78 66 80 65 Q82 66 84 64 Q83 61 82 56" fill="none" stroke="#d4a080" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M73 68 Q78 64 80 66 Q82 64 87 68" fill="none" stroke="#d06060" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M73 68 Q80 74 87 68" fill="none" stroke="#c85060" stroke-width="2.2" stroke-linecap="round"/>
+  <ellipse cx="55" cy="55" rx="5" ry="7" fill="#e8b888"/>
+  <ellipse cx="105" cy="55" rx="5" ry="7" fill="#e8b888"/>
+  <circle cx="55" cy="61" r="3.5" fill="#cc9900"/>
+  <circle cx="55" cy="61" r="2" fill="#ffcc44"/>
+  <circle cx="105" cy="61" r="3.5" fill="#cc9900"/>
+  <circle cx="105" cy="61" r="2" fill="#ffcc44"/>
+  <ellipse cx="120" cy="122" rx="19" ry="14" fill="#ffb3d0"/>
+  <ellipse cx="120" cy="106" rx="14" ry="13" fill="#ffb3d0"/>
+  <polygon points="110,98 107,87 117,97" fill="#ffb3d0"/>
+  <polygon points="130,98 133,87 123,97" fill="#ffb3d0"/>
+  <polygon points="111,98 109,90 116,98" fill="#ffcce0"/>
+  <polygon points="129,98 131,90 124,98" fill="#ffcce0"/>
+  <ellipse cx="115" cy="105" rx="3.5" ry="4" fill="#fff"/>
+  <ellipse cx="115" cy="106" rx="2.3" ry="2.8" fill="#1a0a2a"/>
+  <ellipse cx="125" cy="105" rx="3.5" ry="4" fill="#fff"/>
+  <ellipse cx="125" cy="106" rx="2.3" ry="2.8" fill="#1a0a2a"/>
+  <ellipse cx="120" cy="112" rx="2.2" ry="1.6" fill="#ff85b3"/>
+  <path d="M117 114 Q120 117 123 114" fill="none" stroke="#e07090" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="106" y1="111" x2="115" y2="113" stroke="#fff" stroke-width="0.9" opacity="0.75"/>
+  <line x1="106" y1="114" x2="115" y2="113.5" stroke="#fff" stroke-width="0.9" opacity="0.75"/>
+  <line x1="125" y1="113" x2="134" y2="111" stroke="#fff" stroke-width="0.9" opacity="0.75"/>
+  <line x1="125" y1="113.5" x2="134" y2="114" stroke="#fff" stroke-width="0.9" opacity="0.75"/>
+  <path class="ct" d="M138 132 Q152 124 154 112 Q156 102 148 99" fill="none" stroke="#ffb3d0" stroke-width="7" stroke-linecap="round"/>
+  <ellipse cx="110" cy="136" rx="8" ry="5.5" fill="#ffb3d0"/>
+  <ellipse cx="130" cy="136" rx="8" ry="5.5" fill="#ffb3d0"/>
+</svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ BROWSE ════════ -->
+<div class="screen gone" id="s-browse">
+  <nav class="bnav">
+    <div class="blogo" onclick="goHero()">BR.</div>
+    <div class="bt on" onclick="scrollSec('about',this)">About</div>
+    <div class="bt" onclick="scrollSec('projects',this)">Projects</div>
+    <div class="bt" onclick="scrollSec('experience',this)">Experience</div>
+    <div class="bt" onclick="scrollSec('skills',this)">Skills</div>
+    <div class="bt" onclick="scrollSec('contact',this)">Contact</div>
+    <div class="bnavr"><div class="gdot"></div>Open to work</div>
+  </nav>
+  <div class="bcont">
+
+    <!-- ABOUT -->
+    <div class="bs" id="sec-about"><div class="bs-inner">
+      <div class="sl">About</div>
+      <div class="sh">Nice to<br><em>meet you.</em></div>
+      <div class="about-g">
+        <div class="acard">
+          <p>I'm a graduate student at Emory completing my MS in Computer Science. My work spans <strong>autonomous driving agents</strong>, <strong>3D reconstruction pipelines</strong>, <strong>NLP for low-resource languages</strong>, and <strong>geospatial economic modeling</strong>.</p>
+          <p>I studied at <strong>Universiti Sains Malaysia</strong> where I built Urdu NLP tools from scratch — a low-resource language most AI researchers ignore. I find problems most people overlook.</p>
+          <p>Based in <strong>Atlanta, GA</strong>. Looking for full-time ML/AI engineering roles from December 2026. F-1 with 3 years of OPT — no sponsorship needed.</p>
+        </div>
+        <div class="ipills">
+          <div class="ip"><span class="ipk">University</span><span class="ipv">Emory University</span></div>
+          <div class="ip"><span class="ipk">Degree</span><span class="ipv">MS Computer Science</span></div>
+          <div class="ip"><span class="ipk">GPA</span><span class="ipv">3.9 / 4.0</span></div>
+          <div class="ip"><span class="ipk">Graduation</span><span class="ipv">December 2026</span></div>
+          <div class="ip"><span class="ipk">Location</span><span class="ipv">Atlanta, GA → anywhere</span></div>
+          <div class="ip"><span class="ipk">Visa</span><span class="ipv"><span class="gc"><span style="width:5px;height:5px;border-radius:50%;background:var(--green);display:inline-block"></span>3yr OPT — no sponsorship</span></span></div>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- PROJECTS -->
+    <div class="bs" id="sec-projects"><div class="bs-inner">
+      <div class="sl">Work</div>
+      <div class="sh">Things I<br><em>built.</em></div>
+      <div id="book-section">
+        <div id="book-nav" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+          <div id="proj-dots" style="display:flex;gap:8px;"></div>
+          <div style="display:flex;gap:8px;">
+            <button id="btn-prev" onclick="prevPage()" style="padding:8px 20px;border-radius:8px;background:var(--card2);border:1px solid var(--border2);color:var(--muted2);font-size:13px;cursor:pointer;font-family:var(--sans);transition:all 0.2s;">← prev</button>
+            <button id="btn-next" onclick="nextPage()" style="padding:8px 20px;border-radius:8px;background:var(--pink);border:none;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all 0.2s;">next →</button>
+          </div>
+        </div>
+        <div id="book-wrap" style="position:relative;min-height:320px;"></div>
+      </div>
+    </div></div>
+
+    <!-- EXPERIENCE -->
+    <div class="bs" id="sec-experience"><div class="bs-inner">
+      <div class="sl">Experience</div>
+      <div class="sh">Where I've<br><em>been.</em></div>
+      <div class="etl">
+        <div class="ei" id="ei0"><div class="ec"><div class="er">Graduate Research Assistant</div><div class="eco">Dr. Yolanda A. Rankin — Emory University</div><div class="ed">May 2025 — Present · Atlanta, GA</div><ul class="eu"><li>Leading systematic review of 150+ papers on LLMs in language learning for SIG CHI 2026</li><li>Developed coding framework identifying 15 key themes across 200+ ACM Digital Library sources</li><li>Built structured screening process across educational, technological, and linguistic dimensions</li></ul></div></div>
+        <div class="ei" id="ei1"><div class="ec"><div class="er">AI/ML Intern — Center for AI Learning</div><div class="eco">AI.X — Emory University</div><div class="ed">Jun 2025 — Jul 2025 · Atlanta, GA</div><ul class="eu"><li>Built dual-model ML framework for data center site viability across all U.S. counties</li><li>Engineered geospatial pipelines: energy costs, tax burdens, land value, biodiversity, climate risk</li><li>Produced interactive Streamlit platform for non-technical stakeholder exploration</li></ul></div></div>
+        <div class="ei" id="ei2"><div class="ec"><div class="er">NLP Intern</div><div class="eco">Rekhta Foundation</div><div class="ed">Mar 2023 — Sep 2023 · Noida, India</div><ul class="eu"><li>Built Urdu POS tagger from scratch — 85%+ accuracy on 100K+ word corpus</li><li>HMM + n-gram model for Urdu poetry generation, validated by native speakers</li><li>Seq2Seq model for Roman-to-Urdu transliteration</li></ul></div></div>
+        <div class="ei" id="ei3"><div class="ec"><div class="er">CS Ambassador + Tech Support</div><div class="eco">Emory University — SAAC</div><div class="ed">2025 — Present · Atlanta, GA</div><ul class="eu"><li>CS Master's Ambassador representing the program to prospective students</li><li>Computer Technology Support Worker and Facility Assistant</li></ul></div></div>
+      </div>
+    </div></div>
+     <!-- CURRENT PROJECTS -->
+<div class="bs" id="sec-current"><div class="bs-inner">
+  <div class="sl">Current Work</div>
+  <div class="sh">What I’m building<br><em>right now.</em></div>
+
+  <div class="current-grid">
+
+    <div class="current-card mdm-card">
+      <div class="cc-tag">MDM · DATA QUALITY</div>
+      <div class="cc-title">BOA Customer Call Quality Pipeline</div>
+      <div class="cc-desc">
+        Architecting an end-to-end ETL and SQL-based data quality pipeline for customer call data, including validation, standardization, duplicate detection, survivorship logic, and lineage-aware reporting.
+      </div>
+      <div class="cc-tags">
+        <span>SQL</span><span>ETL</span><span>Golden Record</span><span>Lineage</span>
+      </div>
+    </div>
+
+    <div class="current-card paper-card">
+      <div class="cc-tag">RESEARCH · VISUALIZATION</div>
+      <div class="cc-title">Confirmation Bias in Data</div>
+      <div class="cc-desc">
+        Researching how users interpret music and fitness data through confirmation bias, showing how people reinforce beliefs instead of updating from evidence.
+      </div>
+      <div class="cc-tags">
+        <span>Visualization</span><span>Bias</span><span>UX Research</span>
+      </div>
+    </div>
+
+    <div class="current-card ptsd-card">
+      <div class="cc-tag">FULL STACK · IMPACT</div>
+      <div class="cc-title">PTSDCare Platform</div>
+      <div class="cc-desc">
+        Built a mental health web platform for PTSD screening, mood tracking, and support resources for users in South Africa.
+      </div>
+      <a href="https://ptsdcare-5b0fe.web.app" target="_blank" class="cc-link">Visit Live Site ↗</a>
+      <div class="cc-tags">
+        <span>Firebase</span><span>Web App</span><span>Healthcare</span>
+      </div>
+    </div>
+
+  </div>
+  </div></div>
+    <!-- SKILLS — CONSTELLATION -->
+    <div class="bs" id="sec-skills"><div class="bs-inner">
+      <div class="sl">Skills</div>
+      <div class="sh">What I<br><em>know.</em></div>
+      <div class="skills-wrap">
+        <div class="skills-cats">
+          <button class="scat-btn on" onclick="filterOrbs('all',this)">✦ All</button>
+          <button class="scat-btn" onclick="filterOrbs('lang',this)">Languages</button>
+          <button class="scat-btn" onclick="filterOrbs('ml',this)">AI & ML</button>
+          <button class="scat-btn" onclick="filterOrbs('tools',this)">Tools</button>
+        </div>
+        <div id="constellation">
+          <canvas id="orb-canvas"></canvas>
+          <div class="orb-tooltip" id="orb-tip"><div class="ot-name" id="ot-name"></div><div class="ot-pct" id="ot-pct"></div></div>
+        </div>
+        <div class="skills-legend">
+          <div class="sl-item"><div class="sl-dot" style="background:#ff3d7f"></div>Languages</div>
+          <div class="sl-item"><div class="sl-dot" style="background:#5b8dee"></div>AI & ML</div>
+          <div class="sl-item"><div class="sl-dot" style="background:#00e5a0"></div>Tools</div>
+          <div class="sl-item" style="margin-left:8px;font-style:italic">orb size = proficiency · hover to see details</div>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- CONTACT -->
+    <div class="bs" id="sec-contact"><div class="bs-inner">
+      <div class="sl">Contact</div>
+      <div class="sh">Let's<br><em>work together.</em></div>
+      <div class="contact-g">
+        <div class="ctacrd">
+          <div class="ctat">Open to work.</div>
+          <div class="ctas">Looking for full-time roles in ML Engineering, Software Engineering, or Research from December 2026. Anywhere in the US. F-1 with 3 years of OPT — no H-1B sponsorship needed.</div>
+          <div class="cls">
+            <a href="mailto:fnu.behjat.riyaz@emory.edu" class="cl"><div class="ci">✉️</div><div><div style="font-weight:500">Email me</div><div style="font-size:11px;color:var(--muted)">fnu.behjat.riyaz@emory.edu</div></div></a>
+            <a href="https://linkedin.com/in/behjat-riyaz28" class="cl" target="_blank"><div class="ci">💼</div><div><div style="font-weight:500">LinkedIn</div><div style="font-size:11px;color:var(--muted)">behjat-riyaz28</div></div></a>
+            <a href="https://github.com/Behjat4138" class="cl"><div class="ci">🐙</div><div><div style="font-weight:500">GitHub</div><div style="font-size:11px;color:var(--muted)">"https://github.com/Behjat4138"</div></div></a>
+          </div>
+        </div>
+        <div class="cstatus">
+          <div class="sti"><div class="stik">Status</div><div class="stiv" style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);display:inline-block"></span>Open to full-time roles</div></div>
+          <div class="sti"><div class="stik">Available from</div><div class="stiv">December 2026</div></div>
+          <div class="sti"><div class="stik">Location</div><div class="stiv">Atlanta, GA → anywhere in the US</div></div>
+          <div class="sti"><div class="stik">Visa</div><div class="stiv">F-1 · 3yr OPT/STEM · no sponsorship</div></div>
+          <div class="sti"><div class="stik">GPA</div><div class="stiv">3.9 / 4.0 · Emory University</div></div>
+          <div class="sti"><div class="stik">Focus areas</div><div class="stiv">ML Engineering · SWE · NLP · CV · RL · Research</div></div>
+        </div>
+      </div>
+    </div></div>
+
+  </div>
+</div>
+
+<script>
+// ══ SCREENS ══
+const SCRS=['s-map','s-hero','s-browse'];
+function showS(id){SCRS.forEach(s=>{const e=document.getElementById(s);if(e)e.classList.add('gone');});const t=document.getElementById(id);if(t)t.classList.remove('gone');}
+
+function goHero(){showS('s-hero');spawnPk();}
+function goBrowse(sec){
+  showS('s-browse');
+  spawnPk();
+  setTimeout(()=>{
+    initConstellation();
+    buildBookHTML();
+    triggerReveal();
+    staggerExp();
+    if(sec){const el=document.getElementById('sec-'+sec);if(el)document.getElementById('s-browse').scrollTo({top:el.offsetTop-60,behavior:'smooth'});}
+  },120);
+}
+
+// ══ MASCOT ══
+const msgs=['Hi! I\'m Behjat 🌸','Click to explore! ✦','I build ML stuff 🤖','My cat says meow~ 🐱','Hire me? 👀','3.9 GPA btw 😇','Open to work Dec 2026!','I love building things 💻','LeetCode grind 😅','Check my projects! ⚡','From Kashmir with love ✦'];
+let mi=0;
+function mascotClick(){
+  const s=document.getElementById('msp');
+  const m=document.getElementById('mascot-main');
+  s.textContent=msgs[mi%msgs.length];mi++;
+  s.classList.add('show');
+  m.classList.add('wave');
+  setTimeout(()=>{s.classList.remove('show');m.classList.remove('wave');},2400);
+}
+
+// ══ SCROLL NAV ══
+function scrollSec(sec,tab){
+  document.querySelectorAll('.bt').forEach(t=>t.classList.remove('on'));
+  if(tab)tab.classList.add('on');
+  const el=document.getElementById('sec-'+sec);
+  if(el)document.getElementById('s-browse').scrollTo({top:el.offsetTop-58,behavior:'smooth'});
+}
+
+document.getElementById('s-browse').addEventListener('scroll',()=>{
+  const br=document.getElementById('s-browse');
+  const st=br.scrollTop+80;
+  const secs=['about','projects','experience','skills','contact'];
+  let act='about';
+  secs.forEach(id=>{const el=document.getElementById('sec-'+id);if(el&&el.offsetTop<=st)act=id;});
+  document.querySelectorAll('.bt').forEach((t,i)=>{t.classList.toggle('on',secs[i]===act);});
+  triggerReveal();
+  staggerExp();
+},{passive:true});
+
+// ══ REVEAL ON SCROLL ══
+function triggerReveal(){
+  const br=document.getElementById('s-browse');
+  document.querySelectorAll('.bs-inner').forEach(el=>{
+    const top=el.closest('.bs').offsetTop;
+    if(top<br.scrollTop+br.clientHeight*0.9)el.classList.add('vis');
+  });
+}
+
+function staggerExp(){
+  const br=document.getElementById('s-browse');
+  [0,1,2,3].forEach(i=>{
+    const el=document.getElementById('ei'+i);
+    if(!el)return;
+    const top=el.offsetTop;
+    if(top<br.scrollTop+br.clientHeight*0.92)setTimeout(()=>el.classList.add('vis'),i*100);
+  });
+}
+
+// ══ CONSTELLATION SKILLS ══
+const ALL_ORBS=[
+  {n:'Python',p:95,cat:'lang',c:'#ff3d7f'},
+  {n:'R',p:80,cat:'lang',c:'#ff7ab0'},
+  {n:'C/C++',p:72,cat:'lang',c:'#ff85b3'},
+  {n:'SQL',p:78,cat:'lang',c:'#ff4d6d'},
+  {n:'JavaScript',p:65,cat:'lang',c:'#ffaacc'},
+  {n:'HTML/CSS',p:70,cat:'lang',c:'#ff85b3'},
+  {n:'PyTorch',p:90,cat:'ml',c:'#5b8dee'},
+  {n:'TensorFlow',p:82,cat:'ml',c:'#7ba8ff'},
+  {n:'Reinforcement Learning',p:85,cat:'ml',c:'#4477dd'},
+  {n:'Computer Vision',p:82,cat:'ml',c:'#88aaff'},
+  {n:'NLP / LLMs',p:80,cat:'ml',c:'#5b8dee'},
+  {n:'Geospatial ML',p:78,cat:'ml',c:'#6699ee'},
+  {n:'XGBoost',p:85,cat:'ml',c:'#5588dd'},
+  {n:'OpenCV',p:80,cat:'ml',c:'#4477cc'},
+  {n:'Pandas',p:92,cat:'tools',c:'#00e5a0'},
+  {n:'NumPy',p:90,cat:'tools',c:'#00cc8a'},
+  {n:'Streamlit',p:85,cat:'tools',c:'#00e5a0'},
+  {n:'Git',p:88,cat:'tools',c:'#00bb80'},
+  {n:'Docker',p:72,cat:'tools',c:'#00d494'},
+  {n:'GCP',p:70,cat:'tools',c:'#00c07a'},
+  {n:'Flask',p:75,cat:'tools',c:'#00e5a0'},
+  {n:'React',p:65,cat:'tools',c:'#44ddaa'},
+  {n:'Matplotlib',p:85,cat:'tools',c:'#00bb80'},
+];
+
+let orbs=[],anim,activeFilter='all',canvas,ctx,hoveredOrb=null;
+
+function initConstellation(){
+  canvas=document.getElementById('orb-canvas');
+  if(!canvas||canvas._init)return;
+  canvas._init=true;
+  const cont=document.getElementById('constellation');
+  canvas.width=cont.offsetWidth;
+  canvas.height=cont.offsetHeight;
+  ctx=canvas.getContext('2d');
+  buildOrbs('all');
+  runAnim();
+  canvas.addEventListener('mousemove',handleHover);
+  canvas.addEventListener('mouseleave',()=>{
+    hoveredOrb=null;
+    document.getElementById('orb-tip').classList.remove('show');
+  });
+}
+
+function buildOrbs(filter){
+  const W=canvas.width,H=canvas.height;
+  const filtered=filter==='all'?ALL_ORBS:ALL_ORBS.filter(o=>o.cat===filter);
+  orbs=filtered.map(d=>{
+    const r=d.p/100*22+8;
+    return{
+      ...d,r,
+      x:r+Math.random()*(W-r*2),
+      y:r+Math.random()*(H-r*2),
+      vx:(Math.random()-0.5)*0.3,
+      vy:(Math.random()-0.5)*0.3,
+      pulse:Math.random()*Math.PI*2,
+      pulseSpeed:0.02+Math.random()*0.02,
+      alpha:0,
+      targetAlpha:1,
+    };
+  });
+}
+
+function runAnim(){
+  if(anim)cancelAnimationFrame(anim);
+  function frame(){
+    if(!ctx)return;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    // draw connection lines between close orbs
+    for(let i=0;i<orbs.length;i++){
+      for(let j=i+1;j<orbs.length;j++){
+        const dx=orbs[i].x-orbs[j].x;
+        const dy=orbs[i].y-orbs[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120&&orbs[i].cat===orbs[j].cat){
+          ctx.beginPath();
+          ctx.moveTo(orbs[i].x,orbs[i].y);
+          ctx.lineTo(orbs[j].x,orbs[j].y);
+          ctx.strokeStyle=orbs[i].c+'22';
+          ctx.lineWidth=0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    orbs.forEach(o=>{
+      // move
+      o.x+=o.vx;o.y+=o.vy;
+      if(o.x<o.r||o.x>canvas.width-o.r)o.vx*=-1;
+      if(o.y<o.r||o.y>canvas.height-o.r)o.vy*=-1;
+      o.pulse+=o.pulseSpeed;
+      o.alpha+=(o.targetAlpha-o.alpha)*0.08;
+      const isHov=o===hoveredOrb;
+      const pr=isHov?o.r+4:o.r+Math.sin(o.pulse)*2;
+      // outer glow
+      const grd=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,pr*2.2);
+      grd.addColorStop(0,o.c+'55');
+      grd.addColorStop(1,o.c+'00');
+      ctx.beginPath();ctx.arc(o.x,o.y,pr*2.2,0,Math.PI*2);
+      ctx.fillStyle=grd;ctx.fill();
+      // core
+      const grd2=ctx.createRadialGradient(o.x-pr*0.3,o.y-pr*0.3,0,o.x,o.y,pr);
+      grd2.addColorStop(0,o.c+'ff');
+      grd2.addColorStop(0.6,o.c+'cc');
+      grd2.addColorStop(1,o.c+'44');
+      ctx.beginPath();ctx.arc(o.x,o.y,pr,0,Math.PI*2);
+      ctx.fillStyle=grd2;ctx.fill();
+      // ring if hovered
+      if(isHov){
+        ctx.beginPath();ctx.arc(o.x,o.y,pr+5,0,Math.PI*2);
+        ctx.strokeStyle=o.c+'99';ctx.lineWidth=1.5;ctx.stroke();
+      }
+      // label
+      ctx.font=`${isHov?'500 ':''} ${Math.max(9,Math.min(12,o.r*0.75))}px Inter,sans-serif`;
+      ctx.fillStyle=isHov?'#fff':'rgba(240,238,255,0.85)';
+      ctx.textAlign='center';
+      ctx.textBaseline='middle';
+      // only show label if orb big enough or hovered
+      if(o.r>12||isHov){
+        ctx.fillText(o.n.length>10?o.n.split(' ')[0]:o.n,o.x,o.y);
+      }
+    });
+    anim=requestAnimationFrame(frame);
+  }
+  frame();
+}
+
+function handleHover(e){
+  const rect=canvas.getBoundingClientRect();
+  const mx=e.clientX-rect.left,my=e.clientY-rect.top;
+  hoveredOrb=null;
+  orbs.forEach(o=>{
+    const d=Math.sqrt((o.x-mx)**2+(o.y-my)**2);
+    if(d<o.r+6){hoveredOrb=o;}
+  });
+  const tip=document.getElementById('orb-tip');
+  if(hoveredOrb){
+    document.getElementById('ot-name').textContent=hoveredOrb.n;
+    document.getElementById('ot-pct').textContent=`Proficiency: ${hoveredOrb.p}% · ${hoveredOrb.cat==='lang'?'Language':hoveredOrb.cat==='ml'?'AI & ML':'Tool'}`;
+    tip.style.left=Math.min(e.clientX-rect.left+14,canvas.width-180)+'px';
+    tip.style.top=Math.max(e.clientY-rect.top-50,8)+'px';
+    tip.classList.add('show');
+    canvas.style.cursor='pointer';
+  } else {
+    tip.classList.remove('show');
+    canvas.style.cursor='default';
+  }
+}
+
+function filterOrbs(cat,btn){
+  document.querySelectorAll('.scat-btn').forEach(b=>b.classList.remove('on'));
+  if(btn)btn.classList.add('on');
+  activeFilter=cat;
+  if(canvas){buildOrbs(cat);runAnim();}
+}
+
+// ══ PARTICLES ══
+function spawnPk(){
+  const colors=['#ff3d7f','#ff85b3','#00e5a0','#5b8dee','#f5c842','#a78bfa'];
+  for(let i=0;i<10;i++){
+    const p=document.createElement('div');p.className='pk';
+    const s=Math.random()*4+2;
+    Object.assign(p.style,{width:s+'px',height:s+'px',left:Math.random()*100+'vw',background:colors[~~(Math.random()*colors.length)],animationDuration:(10+Math.random()*12)+'s',animationDelay:Math.random()*6+'s',opacity:String(0.35+Math.random()*0.3)});
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),(parseFloat(p.style.animationDuration)+parseFloat(p.style.animationDelay))*1000+2000);
+  }
+}
+
+// ══ DRAG TO SCROLL PROJECTS ══
+(function(){
+  const el=document.getElementById('pscroll');
+  if(!el)return;
+  let isDown=false,startX,scrollLeft;
+  el.addEventListener('mousedown',e=>{isDown=true;el.style.cursor='grabbing';startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;});
+  el.addEventListener('mouseleave',()=>{isDown=false;el.style.cursor='grab';});
+  el.addEventListener('mouseup',()=>{isDown=false;el.style.cursor='grab';});
+  el.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*1.4;});
+  // touch
+  el.addEventListener('touchstart',e=>{startX=e.touches[0].pageX;scrollLeft=el.scrollLeft;},{passive:true});
+  el.addEventListener('touchmove',e=>{const x=e.touches[0].pageX;el.scrollLeft=scrollLeft-(x-startX);},{passive:true});
+})();
+
+// handle window resize for canvas
+window.addEventListener('resize',()=>{
+  if(canvas){
+    const cont=document.getElementById('constellation');
+    canvas.width=cont.offsetWidth;
+    canvas.height=cont.offsetHeight;
+    canvas._init=false;
+    initConstellation();
+    buildBookHTML();
+  }
+});
+
+// ════════ BOOK ════════
+const PROJECTS = [
+  {id:'page-0'},{id:'page-1'},{id:'page-2'},{id:'page-3'},{id:'page-4'},{id:'page-5'},
+];
+let currentPage = 0;
+
+function buildBookHTML(){
+  const wrap = document.getElementById('book-wrap');
+  if(!wrap) return;
+  wrap.innerHTML = `
+    <div class="book-page active" id="page-0">
+      <div class="page-left">
+        <div class="page-chapter">Chapter I · Featured</div>
+        <div class="page-mascot">
+          <svg width="100%" height="100%" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <style>.pin-bob{animation:pb 1.8s ease-in-out infinite;}@keyframes pb{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}.ring-p{animation:rp 2s ease-out infinite;}@keyframes rp{0%{r:18;opacity:0.7;stroke-width:2}100%{r:45;opacity:0;stroke-width:0.5}}</style>
+            <rect x="10" y="24" width="140" height="82" rx="6" fill="rgba(0,229,160,0.04)" stroke="rgba(0,229,160,0.15)" stroke-width="1"/>
+            <path d="M22 56 Q38 44 58 48 Q74 54 84 46 Q98 38 118 50 Q132 60 142 54" fill="none" stroke="rgba(0,229,160,0.2)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="42" cy="68" r="2" fill="#00e5a0" opacity="0.4"/><circle cx="66" cy="60" r="2" fill="#00e5a0" opacity="0.5"/><circle cx="95" cy="66" r="1.5" fill="#00e5a0" opacity="0.4"/><circle cx="118" cy="72" r="2" fill="#00e5a0" opacity="0.4"/>
+            <g class="pin-bob">
+              <circle class="ring-p" cx="80" cy="62" r="18" fill="none" stroke="#00e5a0" stroke-width="2"/>
+              <circle cx="80" cy="62" r="13" fill="rgba(0,229,160,0.12)" stroke="#00e5a0" stroke-width="1.5"/>
+              <circle cx="80" cy="62" r="6" fill="#00e5a0"/>
+              <circle cx="80" cy="62" r="2.5" fill="#003a28"/>
+              <path d="M80 70 L77 87 L80 82 L83 87Z" fill="#00e5a0"/>
+            </g>
+            <text x="80" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#00e5a0" font-weight="600" opacity="0.7">ALL 3,143 U.S. COUNTIES</text>
+          </svg>
+        </div>
+      </div>
+      <div class="page-right">
+        <div class="page-num">01 / 06</div>
+        <div class="page-tag" style="background:rgba(0,229,160,0.1);color:#00e5a0;border-color:rgba(0,229,160,0.2)">Geospatial ML · Featured</div>
+        <div class="page-title" style="color:#00e5a0">Data Center<br>Site Viability</div>
+        <div class="page-desc">Dual-model ML across all U.S. counties — profitability forecasting (RF, XGBoost, SVM) + environmental suitability. Geospatial pipelines across energy costs, tax policy, land values, climate risk. Live Streamlit dashboard for non-technical stakeholders. Phoenix scored high despite the heat — tax incentives override geography.</div>
+        <div class="page-tags"><span class="pt" style="background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:#00e5a0">XGBoost</span><span class="pt" style="background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:#00e5a0">Random Forest</span><span class="pt" style="background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:#00e5a0">Streamlit</span><span class="pt" style="background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:#00e5a0">Geospatial</span></div>
+      </div>
+    </div>
+
+    <div class="book-page" id="page-1">
+      <div class="page-left">
+        <div class="page-chapter">Chapter II · RL</div>
+        <div class="page-mascot">
+          <svg width="100%" height="100%" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <style>.cb{animation:cbob 1s ease-in-out infinite;}@keyframes cbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}.wl{animation:wspin 0.5s linear infinite;transform-origin:38px 92px;}.wr{animation:wspin 0.5s linear infinite;transform-origin:122px 92px;}@keyframes wspin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.exh{animation:exhf 0.7s ease-out infinite;}@keyframes exhf{0%{opacity:0.6;transform:translateX(0) scale(1)}100%{opacity:0;transform:translateX(-14px) scale(1.4)}}</style>
+            <rect x="10" y="100" width="140" height="3" rx="1" fill="rgba(255,61,127,0.12)"/>
+            <rect x="20" y="105" width="10" height="2" rx="1" fill="rgba(255,61,127,0.08)"/><rect x="48" y="105" width="10" height="2" rx="1" fill="rgba(255,61,127,0.08)"/><rect x="76" y="105" width="10" height="2" rx="1" fill="rgba(255,61,127,0.08)"/><rect x="104" y="105" width="10" height="2" rx="1" fill="rgba(255,61,127,0.08)"/>
+            <g class="cb">
+              <rect x="22" y="68" width="96" height="26" rx="6" fill="#ff3d7f"/>
+              <rect x="34" y="52" width="60" height="20" rx="6" fill="#ff7ab0"/>
+              <rect x="38" y="55" width="17" height="12" rx="2" fill="#aaddff" opacity="0.9"/>
+              <rect x="73" y="55" width="17" height="12" rx="2" fill="#aaddff" opacity="0.9"/>
+              <text x="80" y="83" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" fill="#fff" font-weight="700">LAPZERO</text>
+            </g>
+            <g class="wl"><circle cx="38" cy="92" r="11" fill="#1a0a2a" stroke="#ff3d7f" stroke-width="2"/><circle cx="38" cy="92" r="4.5" fill="#ff3d7f"/><line x1="38" y1="82" x2="38" y2="102" stroke="#ff85b3" stroke-width="1" opacity="0.4"/><line x1="28" y1="92" x2="48" y2="92" stroke="#ff85b3" stroke-width="1" opacity="0.4"/></g>
+            <g class="wr"><circle cx="122" cy="92" r="11" fill="#1a0a2a" stroke="#ff3d7f" stroke-width="2"/><circle cx="122" cy="92" r="4.5" fill="#ff3d7f"/><line x1="122" y1="82" x2="122" y2="102" stroke="#ff85b3" stroke-width="1" opacity="0.4"/><line x1="112" y1="92" x2="132" y2="92" stroke="#ff85b3" stroke-width="1" opacity="0.4"/></g>
+            <g class="exh"><ellipse cx="14" cy="82" rx="6" ry="3.5" fill="#ff85b3" opacity="0.4"/></g>
+            <text x="80" y="122" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#ff85b3" opacity="0.7">100% SUCCESS RATE ✦</text>
+          </svg>
+        </div>
+      </div>
+      <div class="page-right">
+        <div class="page-num">02 / 06</div>
+        <div class="page-tag" style="background:rgba(255,61,127,0.1);color:#ff85b3;border-color:rgba(255,61,127,0.2)">Reinforcement Learning</div>
+        <div class="page-title" style="color:#ff85b3">LapZero</div>
+        <div class="page-desc">DDPG autonomous driving agent with mimicry-based initialization and mastery-driven curriculum training. Achieved 100% success rate on unseen hard tracks. First completion in 4,000 steps — 50% faster than non-curriculum baselines despite increased track complexity.</div>
+        <div class="page-tags"><span class="pt" style="background:rgba(255,61,127,0.1);border:1px solid rgba(255,61,127,0.2);color:#ff85b3">DDPG</span><span class="pt" style="background:rgba(255,61,127,0.1);border:1px solid rgba(255,61,127,0.2);color:#ff85b3">Curriculum Learning</span><span class="pt" style="background:rgba(255,61,127,0.1);border:1px solid rgba(255,61,127,0.2);color:#ff85b3">PyTorch</span></div>
+      </div>
+    </div>
+
+    <div class="book-page" id="page-2">
+      <div class="page-left">
+        <div class="page-chapter">Chapter III · Vision</div>
+        <div class="page-mascot">
+          <svg width="100%" height="100%" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <style>.elid{animation:elida 3.5s ease-in-out infinite;transform-origin:80px 60px;}@keyframes elida{0%,65%,100%{transform:scaleY(1)}70%,76%{transform:scaleY(0.04)}}.imov{animation:imova 4s ease-in-out infinite;}@keyframes imova{0%,100%{transform:translateX(0)}30%{transform:translateX(5px)}60%{transform:translateX(-5px)}}.scl{animation:scla 2.2s linear infinite;}@keyframes scla{from{transform:translateX(-70px);opacity:0.5}to{transform:translateX(70px);opacity:0}}</style>
+            <ellipse class="elid" cx="80" cy="60" rx="64" ry="34" fill="#06060e" stroke="#5b8dee" stroke-width="1.8"/>
+            <ellipse cx="80" cy="60" rx="26" ry="26" fill="#1a2a5a" opacity="0.4"/>
+            <g class="imov">
+              <ellipse cx="80" cy="60" rx="18" ry="18" fill="#5b8dee"/>
+              <ellipse cx="80" cy="60" rx="8" ry="8" fill="#050510"/>
+              <ellipse cx="85" cy="55" rx="4" ry="4" fill="#fff" opacity="0.55"/>
+            </g>
+            <path d="M18 60 Q80 28 142 60" fill="none" stroke="#5b8dee" stroke-width="0.7" opacity="0.25"/>
+            <path d="M18 60 Q80 92 142 60" fill="none" stroke="#5b8dee" stroke-width="0.7" opacity="0.25"/>
+            <clipPath id="eyeclip"><ellipse cx="80" cy="60" rx="63" ry="33"/></clipPath>
+            <rect class="scl" x="0" y="48" width="4" height="24" rx="2" fill="#5b8dee" opacity="0.5" clip-path="url(#eyeclip)"/>
+            <text x="80" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#5b8dee" opacity="0.65">3D RECONSTRUCTION</text>
+          </svg>
+        </div>
+      </div>
+      <div class="page-right">
+        <div class="page-num">03 / 06</div>
+        <div class="page-tag" style="background:rgba(91,141,238,0.1);color:#88aaff;border-color:rgba(91,141,238,0.2)">Computer Vision</div>
+        <div class="page-title" style="color:#88aaff">SMVG</div>
+        <div class="page-desc">Synthetic multi-view generation enabling 3D reconstruction from fixed-camera footage. Integrated YOLO11-seg and SAM3 for instance segmentation. Outperformed NeRF and Depth-Based Rendering in geometric stability and visual coherence.</div>
+        <div class="page-tags"><span class="pt" style="background:rgba(91,141,238,0.1);border:1px solid rgba(91,141,238,0.25);color:#88aaff">3D Reconstruction</span><span class="pt" style="background:rgba(91,141,238,0.1);border:1px solid rgba(91,141,238,0.25);color:#88aaff">YOLO11</span><span class="pt" style="background:rgba(91,141,238,0.1);border:1px solid rgba(91,141,238,0.25);color:#88aaff">SAM3</span><span class="pt" style="background:rgba(91,141,238,0.1);border:1px solid rgba(91,141,238,0.25);color:#88aaff">NeRF</span></div>
+      </div>
+    </div>
+
+    <div class="book-page" id="page-3">
+      <div class="page-left">
+        <div class="page-chapter">Chapter IV · NLP</div>
+        <div class="page-mascot">
+          <svg width="100%" height="100%" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <style>.ug2{animation:ug2a 2s ease-in-out infinite;}@keyframes ug2a{0%,100%{transform:scale(1);opacity:0.85}50%{transform:scale(1.05);opacity:1}}.pw{animation:pwa 1.8s ease-in-out infinite;}@keyframes pwa{0%,100%{transform:translate(0,0) rotate(-35deg)}50%{transform:translate(9px,-5px) rotate(-35deg)}}</style>
+            <rect x="18" y="16" width="124" height="96" rx="8" fill="rgba(245,200,66,0.04)" stroke="rgba(245,200,66,0.18)" stroke-width="1.5"/>
+            <rect x="18" y="16" width="124" height="22" rx="8" fill="rgba(245,200,66,0.08)"/>
+            <rect x="18" y="32" width="124" height="6" fill="rgba(245,200,66,0.08)"/>
+            <text x="80" y="29" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#f5c842" opacity="0.75" font-weight="600">POS TAGGER · 85%+ · 100K WORDS</text>
+            <text class="ug2" x="80" y="76" text-anchor="middle" font-size="30" fill="#f5c842">اردو</text>
+            <path d="M28 90 Q80 84 132 90" fill="none" stroke="#f5c842" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+            <g class="pw" style="transform-origin:130px 55px">
+              <line x1="122" y1="62" x2="138" y2="44" stroke="#f5c842" stroke-width="2.5" stroke-linecap="round"/>
+              <polygon points="138,44 134,40 142,38" fill="#f5c842" opacity="0.85"/>
+            </g>
+            <text x="80" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#f5c842" opacity="0.55">SEQ2SEQ · HMM · N-GRAM</text>
+          </svg>
+        </div>
+      </div>
+      <div class="page-right">
+        <div class="page-num">04 / 06</div>
+        <div class="page-tag" style="background:rgba(245,200,66,0.08);color:#f5c842;border-color:rgba(245,200,66,0.2)">NLP</div>
+        <div class="page-title" style="color:#f5c842">Urdu NLP Suite</div>
+        <div class="page-desc">POS tagger for Urdu built from scratch — 85%+ accuracy on 100K+ word corpus. HMM + n-gram language model for contextually appropriate poetry generation. Seq2Seq Roman→Urdu transliteration. Validated by native speakers. Built for a language most AI ignores.</div>
+        <div class="page-tags"><span class="pt" style="background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);color:#f5c842">HMM</span><span class="pt" style="background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);color:#f5c842">Seq2Seq</span><span class="pt" style="background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);color:#f5c842">Low-resource NLP</span></div>
+      </div>
+    </div>
+
+    <div class="book-page" id="page-4">
+      <div class="page-left">
+        <div class="page-chapter">Chapter V · AI</div>
+        <div class="page-mascot">
+          <svg width="100%" height="100%" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <style>.pc3{animation:pc3c 0.38s ease-in-out infinite;transform-origin:26px 65px;}@keyframes pc3c{0%,100%{transform:rotate(0)}50%{transform:rotate(-24deg)}}.gf1{animation:gfl 1s ease-in-out infinite;}.gf2{animation:gfl 1s 0.35s ease-in-out infinite;}@keyframes gfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}.de1{animation:deeat 1.4s 0s linear infinite;}.de2{animation:deeat 1.4s 0.22s linear infinite;}.de3{animation:deeat 1.4s 0.44s linear infinite;}@keyframes deeat{0%,55%{opacity:1}65%,100%{opacity:0}}</style>
+            <rect x="6" y="6" width="148" height="118" rx="8" fill="#06060e"/>
+            <line x1="6" y1="65" x2="154" y2="65" stroke="#12122a" stroke-width="0.8"/>
+            <g class="pc3"><path d="M26 65 L44 52 A20 20 0 1 0 44 78Z" fill="#f5c842"/><circle cx="26" cy="56" r="2.8" fill="#06060e"/></g>
+            <circle class="de1" cx="60" cy="65" r="4.5" fill="#fff" opacity="0.85"/>
+            <circle class="de2" cx="75" cy="65" r="4.5" fill="#fff" opacity="0.85"/>
+            <circle class="de3" cx="90" cy="65" r="4.5" fill="#fff" opacity="0.85"/>
+            <circle cx="136" cy="65" r="8" fill="#fff" opacity="0.4"/>
+            <g class="gf1"><path d="M100 52 Q100 40 109 40 Q118 40 118 52 L118 68 Q116 65 114 68 Q112 71 110 68 Q108 65 106 68 Q104 65 102 68 Q100 65 100 68Z" fill="#ff3d7f" opacity="0.9"/><circle cx="106" cy="49" r="2.5" fill="#fff"/><circle cx="112" cy="49" r="2.5" fill="#fff"/><circle cx="107" cy="50" r="1.1" fill="#06060e"/><circle cx="113" cy="50" r="1.1" fill="#06060e"/></g>
+            <g class="gf2"><path d="M122 48 Q122 36 131 36 Q140 36 140 48 L140 64 Q138 61 136 64 Q134 67 132 64 Q130 61 128 64 Q126 61 124 64 Q122 61 122 64Z" fill="#a78bfa" opacity="0.9"/><circle cx="128" cy="45" r="2.5" fill="#fff"/><circle cx="134" cy="45" r="2.5" fill="#fff"/><circle cx="129" cy="46" r="1.1" fill="#06060e"/><circle cx="135" cy="46" r="1.1" fill="#06060e"/></g>
+            <text x="80" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#f5c842" opacity="0.65">A* · MINIMAX · Q-LEARNING</text>
+          </svg>
+        </div>
+      </div>
+      <div class="page-right">
+        <div class="page-num">05 / 06</div>
+        <div class="page-tag" style="background:rgba(245,220,50,0.1);color:#f5d842;border-color:rgba(245,220,50,0.2)">Artificial Intelligence</div>
+        <div class="page-title" style="color:#f5d842">Pacman AI</div>
+        <div class="page-desc">Implemented DFS, BFS, UCS and A* for efficient pathfinding and decision-making. Multi-agent adversarial systems using Minimax, Alpha-Beta pruning, and Expectimax. Q-Learning and Value Iteration to train adaptive agents that maximize rewards through experience.</div>
+        <div class="page-tags"><span class="pt" style="background:rgba(245,220,50,0.1);border:1px solid rgba(245,220,50,0.2);color:#f5d842">A*</span><span class="pt" style="background:rgba(245,220,50,0.1);border:1px solid rgba(245,220,50,0.2);color:#f5d842">Q-Learning</span><span class="pt" style="background:rgba(245,220,50,0.1);border:1px solid rgba(245,220,50,0.2);color:#f5d842">Minimax</span><span class="pt" style="background:rgba(245,220,50,0.1);border:1px solid rgba(245,220,50,0.2);color:#f5d842">Value Iteration</span></div>
+      </div>
+    </div>
+
+    <div class="book-page" id="page-5">
+      <div class="page-left">
+        <div class="page-chapter">Chapter VI · Data Mining</div>
+        <div class="page-mascot">
+          <svg width="100%" height="100%" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <style>.da{animation:daa 2.5s ease-in-out infinite;}.db{animation:daa 2.5s 0.5s ease-in-out infinite;}@keyframes daa{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}.rn{animation:rnf 1.5s ease-in-out infinite;}@keyframes rnf{0%,100%{opacity:0.55}50%{opacity:1}}</style>
+            <path class="da" d="M22 10 Q46 28 22 46 Q46 64 22 82 Q46 100 22 118" fill="none" stroke="#a78bfa" stroke-width="3" stroke-linecap="round"/>
+            <path class="db" d="M138 10 Q114 28 138 46 Q114 64 138 82 Q114 100 138 118" fill="none" stroke="#ff85b3" stroke-width="3" stroke-linecap="round"/>
+            <line class="rn" x1="22" y1="28" x2="138" y2="28" stroke="#f5c842" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+            <line class="rn" x1="22" y1="46" x2="138" y2="46" stroke="#f5c842" stroke-width="2" stroke-linecap="round" opacity="0.65" style="animation-delay:0.5s"/>
+            <line class="rn" x1="22" y1="64" x2="138" y2="64" stroke="#f5c842" stroke-width="2" stroke-linecap="round" opacity="0.65" style="animation-delay:1s"/>
+            <line class="rn" x1="22" y1="82" x2="138" y2="82" stroke="#f5c842" stroke-width="2" stroke-linecap="round" opacity="0.65" style="animation-delay:1.5s"/>
+            <circle cx="22" cy="28" r="4.5" fill="#a78bfa"/><circle cx="138" cy="28" r="4.5" fill="#ff85b3"/>
+            <circle cx="22" cy="46" r="4.5" fill="#a78bfa"/><circle cx="138" cy="46" r="4.5" fill="#ff85b3"/>
+            <circle cx="22" cy="64" r="4.5" fill="#a78bfa"/><circle cx="138" cy="64" r="4.5" fill="#ff85b3"/>
+            <circle cx="22" cy="82" r="4.5" fill="#a78bfa"/><circle cx="138" cy="82" r="4.5" fill="#ff85b3"/>
+            <text x="80" y="114" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#a78bfa" opacity="0.65">25% PERFORMANCE GAIN</text>
+          </svg>
+        </div>
+      </div>
+      <div class="page-right">
+        <div class="page-num">06 / 06</div>
+        <div class="page-tag" style="background:rgba(167,139,250,0.1);color:#c4b5fd;border-color:rgba(167,139,250,0.2)">Data Mining</div>
+        <div class="page-title" style="color:#c4b5fd">Feature Selection</div>
+        <div class="page-desc">Data mining model using Decision Trees, Logistic Regression, Neural Networks and KNN to predict faults in datasets. Optimized performance by 25% using genetic algorithms for feature selection. Built at Universiti Sains Malaysia.</div>
+        <div class="page-tags"><span class="pt" style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#c4b5fd">Genetic Algorithms</span><span class="pt" style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#c4b5fd">Neural Networks</span><span class="pt" style="background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#c4b5fd">KNN</span></div>
+      </div>
+    </div>
+  `;
+  buildDots();
+}
+
+function buildDots(){
+  const d = document.getElementById('proj-dots');
+  if(!d) return;
+  d.innerHTML = '';
+  PROJECTS.forEach((_,i)=>{
+    const dot = document.createElement('div');
+    dot.className = 'proj-dot' + (i===currentPage?' on':'');
+    dot.onclick = ()=>goToPage(i);
+    d.appendChild(dot);
+  });
+}
+
+function goToPage(n){
+  if(n < 0 || n >= PROJECTS.length) return;
+  const oldPage = document.getElementById('page-'+currentPage);
+  if(oldPage){
+    oldPage.classList.remove('active');
+    oldPage.classList.add('leaving');
+    setTimeout(()=>oldPage.classList.remove('leaving'),400);
+  }
+  currentPage = n;
+  const newPage = document.getElementById('page-'+currentPage);
+  if(newPage){
+    newPage.classList.add('active');
+  }
+  buildDots();
+  // update prev/next buttons
+  const prev = document.getElementById('btn-prev');
+  const next = document.getElementById('btn-next');
+  if(prev) prev.style.opacity = currentPage===0?'0.4':'1';
+  if(next) next.textContent = currentPage===PROJECTS.length-1?'← start over':'next →';
+}
+
+function nextPage(){
+  if(currentPage < PROJECTS.length-1) goToPage(currentPage+1);
+  else goToPage(0);
+}
+function prevPage(){
+  if(currentPage > 0) goToPage(currentPage-1);
+}
+
+// keyboard navigation
+document.addEventListener('keydown',e=>{
+  const browse = document.getElementById('s-browse');
+  if(browse && !browse.classList.contains('gone')){
+    if(e.key==='ArrowRight') nextPage();
+    if(e.key==='ArrowLeft') prevPage();
+  }
+});
+
+</script>
+</body>
+</html>
