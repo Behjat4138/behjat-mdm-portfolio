@@ -19,7 +19,7 @@ Every section of the portfolio is an app:
 |------|-----|-------------|
 | 📄 | About.txt | Who I am, in a TextEdit window |
 | 🗂️ | Projects | Finder-style sidebar with 6 case studies, each with its own animated diagram |
-| 🔬 | Research | Document viewer with venue stamps (CHI 2027, SIGCHI 2027) |
+| 🔬 | Research | Document viewer with venue stamps (CHI 2027) |
 | 🗺️ | Journey | Timeline of roles and internships |
 | ⌨️ | Terminal | Actually works — type `help`, `hire`, `open projects`, `curtains`, `sudo` |
 | ✉️ | Contact | Pre-written mail compose window with email/LinkedIn/GitHub |
