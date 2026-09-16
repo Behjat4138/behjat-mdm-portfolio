@@ -479,7 +479,7 @@ button{font-family:var(--chrome)}
 </div>
 
 <div class="win" id="w-research">
-  <div class="tbar"><div class="dots"><i class="cl" data-close></i><i class="mn"></i><i class="mx"></i></div><div class="ttl">Research <em>— Preview</em></div></div>
+  <div class="tbar"><div class="dots"><i class="cl" data-close></i><i class="mn"></i><i class="mx"></i></div><div class="ttl">Research &amp; Certs <em>— Preview</em></div></div>
   <div class="wbody">
     <div class="paper">
       <span class="stamp">CHI 2027 · IN SUBMISSION</span>
@@ -488,16 +488,13 @@ button{font-family:var(--chrome)}
       <div class="with">with collaborators at Emory</div>
     </div>
     <div class="paper">
-      <span class="stamp prep">SIGCHI 2027 · IN PREP</span>
-      <h3>Systematic review: LLMs in language learning</h3>
-      <p>First-author review of 150+ papers, screened from 200+ ACM Digital Library sources with a structured coding framework across educational, technological, and linguistic dimensions. 15 themes identified.</p>
-      <div class="with">Rankin Lab, Emory — with Dr. Yolanda A. Rankin</div>
-    </div>
-    <div class="paper">
-      <span class="stamp on">ONGOING</span>
-      <h3>Thermal imaging for pressure injury detection</h3>
-      <p>Imaging and data pipeline for a clinical study — collection protocols with the nursing team, dataset organization for model training, and clinical annotations kept consistent with processed data.</p>
-      <div class="with">Emory School of Nursing</div>
+      <span class="stamp on">VERIFIED</span>
+      <h3>Anthropic Certifications</h3>
+      <p><b>Claude SDK Developer</b> — building applications with the Claude API and SDK.<br>
+      <b>Model Context Protocol (MCP)</b> — designing and integrating MCP servers and tools.<br>
+      <b>Claude Code in Action</b> — agentic coding workflows with Claude Code.<br>
+      <b>AI Fluency</b> — foundational understanding of AI systems and responsible use.</p>
+      <div class="with">Anthropic · completed 2026</div>
     </div>
   </div>
 </div>
@@ -787,7 +784,7 @@ const cmds={
   help:()=>`commands: <b>whoami</b> · <b>projects</b> · <b>research</b> · <b>certs</b> · <b>visa</b> · <b>contact</b> · <b>open &lt;app&gt;</b> · <b>curtains</b> · <b>desk</b> · <b>hire</b> · <b>clear</b>`,
   whoami:()=>`Behjat Riyaz — ML engineer & researcher.<br>MS CS @ Emory (3.945). Ships multi-agent systems.<br>Grad: <b>Dec 2026</b> · start: <b>Jan 2027</b>.`,
   projects:()=>projects.map((p,i)=>`${i+1}. <b>${p.t}</b> — ${p.k.toLowerCase()}`).join('<br>')+`<br><span class="cob">→ try: open projects</span>`,
-  research:()=>`<b>CHI 2027</b> — belief updating & confirmation bias (in submission)<br><b>SIGCHI 2027</b> — LLMs in language learning, 150+ papers (in prep)<br><b>Clinical</b> — thermal imaging for pressure injury detection (ongoing)`,
+  research:()=>`<b>CHI 2027</b> — belief updating & confirmation bias (in submission)<br><b>Anthropic certs ×4</b> — Claude SDK · MCP · Claude Code · AI Fluency`,
   certs:()=>`Anthropic ×4: <b>Claude SDK</b> · <b>MCP</b> · <b>Claude Code</b> · <b>AI Fluency</b>`,
   visa:()=>`F-1 → 3 years OPT/STEM OPT from Jan 2027.<br><b>No sponsorship needed until 2030.</b>`,
   contact:()=>`email: <b>fnu.behjat.riyaz@emory.edu</b><br>linkedin: /in/behjat-riyaz28 · github: /Behjat4138`,
